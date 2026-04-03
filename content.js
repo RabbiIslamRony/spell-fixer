@@ -182,11 +182,15 @@
 
     el.addEventListener('input',  function ()  { debouncedCheck(el); });
     el.addEventListener('scroll', function ()  { syncMirrorScroll(el); });
-    el.addEventListener('click',  function (e) {
-      // Use setTimeout so selectionStart is up-to-date (Chrome sets it sync,
-      // but the timeout costs nothing and is safe cross-browser).
-      setTimeout(function () { handleInputClick(e, el); }, 0);
-    });
+    // Only handle click for input/textarea — contenteditable clicks are handled
+    // by the capture-phase document listener that detects .sf-error spans.
+    if (isInputOrTextarea(el)) {
+      el.addEventListener('click', function (e) {
+        // Use setTimeout so selectionStart is up-to-date (Chrome sets it sync,
+        // but the timeout costs nothing and is safe cross-browser).
+        setTimeout(function () { handleInputClick(e, el); }, 0);
+      });
+    }
 
     if (enabled) debouncedCheck(el);
   }
