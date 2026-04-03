@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Spell Fixer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      background: #f8fafc;
+      color: #1e293b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 40px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      width: 56px;
+      height: 56px;
+      background: #E24B4A;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(226, 75, 74, 0.3);
+    }
+
+    .logo svg { display: block; }
+
+    .header-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .header-subtitle {
+      font-size: 16px;
+      color: #64748b;
+      font-weight: 400;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    /* ── Steps ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      background: #E24B4A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 1px;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-heading {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* ── Good to know list ── */
+    .tips {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    .tip-dot {
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      background: #E24B4A;
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+
+    /* ── Links row ── */
+    .links-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px 28px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .links-card a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #475569;
+      text-decoration: none;
+      padding: 4px 16px;
+      border-right: 1px solid #e2e8f0;
+      transition: color 0.15s;
+    }
+
+    .links-card a:last-child {
+      border-right: none;
+    }
+
+    .links-card a:hover {
+      color: #E24B4A;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="2" y="22" font-family="Georgia, serif" font-size="20"
+                font-weight="bold" fill="white">ab</text>
+          <line x1="2" y1="27" x2="28" y2="27" stroke="white"
+                stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h1 class="header-title">Spell Fixer</h1>
+      <p class="header-subtitle">Installed successfully!</p>
+    </div>
+
+    <!-- Section 1: How to use -->
+    <div class="card">
+      <p class="card-title">How to use</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <p class="step-heading">Type in any text box</p>
+            <p class="step-desc">Spell Fixer activates automatically on every text field across any website.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <p class="step-heading">Misspelled words get a red underline</p>
+            <p class="step-desc">Click the underline to see suggestions for the correct spelling.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <p class="step-heading">Click a suggestion or add to your dictionary</p>
+            <p class="step-desc">Your custom words are saved permanently and never flagged again.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Good to know -->
+    <div class="card">
+      <p class="card-title">Good to know</p>
+      <div class="tips">
+        <div class="tip">
+          <div class="tip-dot"></div>
+          <span>Words in ALL CAPS, URLs, and numbers are never flagged.</span>
+        </div>
+        <div class="tip">
+          <div class="tip-dot"></div>
+          <span>Click the extension icon to turn spell checking on or off globally.</span>
+        </div>
+        <div class="tip">
+          <div class="tip-dot"></div>
+          <span>You can disable Spell Fixer on specific sites using the popup.</span>
+        </div>
+        <div class="tip">
+          <div class="tip-dot"></div>
+          <span>Your custom dictionary is saved locally — no data is sent anywhere.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Links -->
+    <div class="links-card">
+      <a href="#">View on GitHub</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Report an Issue</a>
+    </div>
+
+    <!-- Footer -->
+    <p class="footer">Spell Fixer works completely offline. No account needed.</p>
+
+  </div>
+</body>
+</html>

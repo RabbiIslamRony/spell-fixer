@@ -1,0 +1,167 @@
+/* ── Spell Fixer — Content Styles ───────────────────────────────────────────── */
+
+/* Mirror div — positioned fixed over the input/textarea.
+   pointer-events:none means all clicks/keys still reach the real field.
+   z-index 99998 puts it above the page but below the suggestion popup.
+   background:transparent so it doesn't obscure anything; only the
+   border-bottom on .sf-error spans is visible.                           */
+.sf-mirror {
+  position: fixed;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  color: transparent;       /* mirror text is invisible                  */
+  background: transparent;  /* see-through — page/input bg shows through */
+  z-index: 99998;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Real input/textarea — make bg transparent so the red underlines
+   from the mirror (which sits on top) show through.                      */
+.sf-field-active {
+  background-color: transparent !important;
+}
+
+/* ── Misspelled word highlight ──────────────────────────────────────────────── */
+.sf-error {
+  border-bottom: 2px solid #E24B4A;
+  cursor: pointer;
+  /* color: transparent inherited from .sf-mirror for input/textarea;
+     overridden below for contenteditable                                  */
+}
+
+[contenteditable] .sf-error {
+  color: inherit;
+  background: rgba(226, 75, 74, 0.08);
+  border-radius: 1px;
+}
+
+/* ── Suggestion Popup ───────────────────────────────────────────────────────── */
+.sf-popup {
+  position: fixed;
+  z-index: 99999;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 0;
+  min-width: 170px;
+  max-width: 260px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
+}
+
+/* Misspelled word shown at the top of the popup */
+.sf-popup-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px 7px;
+  background: #fef2f2;
+  border-bottom: 1px solid #fecaca;
+}
+
+.sf-popup-header-word {
+  font-weight: 600;
+  color: #dc2626;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.sf-popup-header-x {
+  color: #f87171;
+  font-size: 11px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* "Did you mean" label above suggestions */
+.sf-popup-label {
+  display: block;
+  padding: 7px 12px 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sf-popup-item {
+  display: block;
+  width: 100%;
+  padding: 7px 12px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  color: #1e293b;
+  font-size: 13px;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  transition: background 0.1s;
+}
+
+.sf-popup-item:hover {
+  background: #f1f5f9;
+  outline: none;
+}
+
+.sf-popup-item:focus {
+  background: #e0f2fe;
+  outline: 2px solid #0284c7;
+  outline-offset: -2px;
+}
+
+/* First suggestion is the best match — make it slightly bolder */
+.sf-popup-item:first-of-type {
+  font-weight: 500;
+}
+
+.sf-popup-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 2px 0;
+}
+
+.sf-popup-ignore {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.sf-popup-ignore:hover,
+.sf-popup-ignore:focus {
+  background: #f8fafc;
+}
+
+.sf-popup-add {
+  color: #2563eb;
+  font-size: 12px;
+}
+
+.sf-popup-add:hover,
+.sf-popup-add:focus {
+  background: #eff6ff;
+}
+
+.sf-popup-empty {
+  display: block;
+  padding: 8px 12px;
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 12px;
+}
