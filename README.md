@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen)](#)
+[![Release](https://img.shields.io/github/v/release/RabbiIslamRony/spell-fixer)](https://github.com/RabbiIslamRony/spell-fixer/releases)
 
 ## 🚀 Overview
 
