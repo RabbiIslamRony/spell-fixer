@@ -1,5 +1,18 @@
 {
+  "name": "spell-fixer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension for offline real-time spell checking",
+  "main": "build.js",
+  "scripts": {
+    "clean": "node build.js --clean",
+    "build": "node build.js",
+    "release": "npm run build && git add dist && git commit -m \"chore: build release asset\""
+  },
   "dependencies": {
     "playwright": "^1.59.1"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1"
   }
 }
